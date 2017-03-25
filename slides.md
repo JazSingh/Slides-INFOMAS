@@ -23,6 +23,7 @@ sansfont: Ubuntu Light
 . . .
 
 This causes some uncertainties:
+
 1. Agents tend to be self-interested and may be unreliable
 2. No agent can know everything about the environment
 3. No central authority can control everything
@@ -30,14 +31,14 @@ This causes some uncertainties:
 
 ---
 
-# Sources of trust
+# Sources of trust/reputation
 
-| Source                                           | Type          |
-|:-------------                                    |:-------------|
-| Direct experience                                | Interaction trust    |
-| Witness experience                               | Witness reputation   |
-| Role-bases rules                                 | Role-based trust     | 
-| Third-party references provided by target agents | Certified reputation |
+| Source                 | Type                 |
+|:-------------          |:-------------        |
+| Direct experience      | Interaction trust    |
+| Witness experience     | Witness reputation   |
+| Role-bases rules       | Role-based trust     | 
+| Third-party references | Certified reputation |
 
 
 ---
@@ -47,6 +48,7 @@ This causes some uncertainties:
 Uses all four sources of information
 
 Works, based on the following assumptions:
+
 * Agents are willing to share their experiences with others (as witnesses or as referees)
 * Agents are honest in exchanging information with one another.
 
@@ -56,25 +58,36 @@ So… we do not consider the problem of lying and inaccuracy.
 
 ---
 
-# How to quantify trust? The old way
+
+# How to quantify trust/reputation? 
+
+## The old way
 
 Just take the average of all the ratings.
 
 . . .
 
 However... these ratings are not equally relevant: 
+
 * Older ratings might not be as relevent as new ones
 * Some ratings are more credible than other depending on the source
 
-So what other way can we quantify trust?
+So in what other way can we quantify trust?
 
 ---
 
-# How to quantify trust? The FIRE way
+# How to quantify trust? 
+
+## The FIRE way
 
 Use a rating weight function $\omega_K$ for every type of trust.
 
-\begin{equation} \mathcal{T}_K(a,b,c) = \frac{\sum{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot v_i}{\sum{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} \end{equation}
+\begin{equation} 
+\mathcal{T}_K(a,b,c) = 
+\frac{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot v_i}
+{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} 
+\end{equation}
+
 
 ---
 
