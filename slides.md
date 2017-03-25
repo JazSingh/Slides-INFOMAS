@@ -110,6 +110,18 @@ This gives us:
 
 ---
 
+# How to quantify trust? 
+
+## The FIRE way
+
+\begin{equation} 
+\mathcal{T}_K(a,b,c) = 
+\frac{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot v_i}
+{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} 
+\end{equation}
+
+---
+
 # What about reliability
 
 ---
