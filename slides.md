@@ -69,7 +69,7 @@ Just take the average of all the ratings.
 
 However... these ratings are not equally relevant: 
 
-* Older ratings might not be as relevent as new ones
+* Older ratings might not be as relevant as new ones
 * Some ratings are more credible than other depending on the source
 
 So in what other way can we quantify trust?
@@ -80,14 +80,33 @@ So in what other way can we quantify trust?
 
 ## The FIRE way
 
-Use a rating weight function $\omega_K$ for every type of trust.
+Every rating is a tuple $r = (a,b,c,i,v)$.
+
+Where $a$ and $b$ are the agents participating in transaction $i$. Value $v \in [-1, +1]$ is the rating given by agent $a$ to agent $b$ regarding regarding topic $c$ (e.g. quality, honesty).
+
+These ratings are stored in the agent's local database. 
+
+. . .
+
+Since ratings become outdated over time, an agent only stores the latest $H$ transactions it gave to other agents.
+
+---
+
+# How to quantify trust? 
+
+## The FIRE way
+
+Use a rating weight function $\omega_K$ for every type of trust, where $K \in \{I,R,W,C\}$.
+
+. . .
+
+This gives us:
 
 \begin{equation} 
 \mathcal{T}_K(a,b,c) = 
 \frac{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot v_i}
 {\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} 
 \end{equation}
-
 
 ---
 
