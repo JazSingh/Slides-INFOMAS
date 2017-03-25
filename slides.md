@@ -1,7 +1,7 @@
 ---
 author: Jaspreet Singh & Daniël Stekelenburg
 title: An Integrated trust and reputation model for open multi-agent systems
-subtitle: A paper by Trung Dong Huynh, Nicholas R. Jennings & Nigel R. Shadbolt
+subtitle: A paper by Trung Dong Huynh, Nicholas R. Jennings & Nigel R. Shadbolt (2006)
 theme: uucs
 mainfont: Ubuntu Light
 sansfont: Ubuntu Light
