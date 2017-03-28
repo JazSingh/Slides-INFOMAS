@@ -59,9 +59,7 @@ So… we do not consider the problem of lying and inaccuracy.
 ---
 
 
-# How to quantify trust/reputation? 
-
-## The old way
+# How to quantify trust/reputation? - The old way
 
 Just take the average of all the ratings.
 
@@ -76,9 +74,7 @@ So in what other way can we quantify trust?
 
 ---
 
-# How to quantify trust? 
-
-## The FIRE way
+# How to quantify trust? - The FIRE way
 
 Every rating is a tuple $r = (a,b,c,i,v)$.
 
@@ -92,11 +88,9 @@ Since ratings become outdated over time, an agent only stores the latest $H$ tra
 
 ---
 
-# How to quantify trust? 
+# How to quantify trust? - Trust value $\mathcal{T}$
 
-## The FIRE way
-
-Use a rating weight function $\omega_K$ for every type of trust, where $K \in \{I,R,W,C\}$.
+Use a rating weight function (reliability function) $\omega_K$ for every type of trust, where $K \in \{I,R,W,C\}$.
 
 . . .
 
@@ -108,21 +102,98 @@ This gives us:
 {\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} 
 \end{equation}
 
+* $\mathcal{T}_K(a,b,c)$ is the trust value of agent $a$ towards agent $b$ on topic $c$, regarding $K$.
+* $\mathcal{R}_K(a,b,c)$ are the ratings collected on $K$.
+* $\mathcal{T}_K(a,b,c) \in [-1, +1]$
+
 ---
 
-# How to quantify trust? 
+# How to quantify trust? - Reliability
 
-## The FIRE way
+* We now have a trust value $\mathcal{T}_K$
+* How reliable is $\mathcal{T}_K$?
 
-\begin{equation} 
-\mathcal{T}_K(a,b,c) = 
-\frac{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot v_i}
-{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i)} 
+. . .
+
+* We need a value to express how reliable the calculated trust value $\mathcal{T}_K$ is!
+
+---
+
+# How to express reliability?
+
+* We know how to calculate how reliable each individual rating is: $\omega_K$
+* We use this to express:
+    * Rating reliability $\rho_{RK}$: The total reliability of the individual ratings.
+    * Deviation reliability $\rho_{DK}$: The higher the variance in the ratings is, the more volatile the agent is likely to fulfilling its agreements. 
+
+---
+
+# How to express reliability? - Rating reliability
+
+* The total reliability of the individual ratings. $\rightarrow$ The sum of reliability of the individual ratings.
+
+\begin{equation} \rho_{RK}(a,b,c) = 1 - exp\bigg( -\gamma_K \Big( \sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \Big) \bigg) \end{equation}
+
+![Rating reliability function](img/fig_rating_rel.png)
+
+---
+
+# How to express reliability? - Deviation reliability
+
+* The higher the variability in the ratings is, the more volatile the agent is likely to fulfilling its agreements. 
+* $\rightarrow$ The higher the variability the lower the deviation reliability is.
+
+\begin{equation}
+\rho_{DK}(a,b,c) = 1 - \frac{1}{2} \cdot 
+\frac{\sum\nolimits_{r_i \in \mathcal{R}_K(a,b,c)} \omega_K (r_i) \cdot |v_i-\mathcal{T}_K(a,b,c)|}{\sum\nolimits_{r_i\in \mathcal{R}_K(a,b,c)} \omega_K (r_i)}
+\end{equation}
+
+
+---
+
+# How to express reliability?
+
+* Now we know how to calculate both the rating reliability $\rho_{RK}$ and deviation reliability $\rho_{DK}$. 
+
+* We combine both values and get a single value for the reliability of $\mathcal{T}$:
+
+\begin{equation}
+\rho_K(a,b,c) = \rho_{RK}(a,b,c) \cdot \rho_{DK}(a,b,c)
 \end{equation}
 
 ---
 
-# What about reliability
+# Interaction trust
+
+* Is built from the direct experiences of an agent and models the direct interactions between two agents. 
+* The reliability $\omega_I(r_i)$ of a single interaction is determined by its recency:
+\begin{equation}
+\omega_I(r_i) = exp\bigg( - \frac{\Delta t(r_i)}{\lambda} \bigg)
+\end{equation}
+* $\Delta t(r_i)$ is the difference in time between now and the time when $r_i$ was recorded.
+* $\lambda$ is the recency scaling factor.
+
+---
+
+# Interaction trust
+
+![Behavior of the weight function $\omega_I(r_i)$.](img/fig_interaction_func.png)
+
+---
+
+# Role-based trust
+
+---
+
+# Witness reputation
+
+---
+
+# Certified reputation
+
+---
+
+# Putting it all together
 
 ---
 
