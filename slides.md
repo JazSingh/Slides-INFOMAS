@@ -183,9 +183,32 @@ This gives us:
 
 # Role-based trust
 
+* Models trust resulting from role-based relations.
+* For example: provider-consumer relationship.
+* The reliability $\omega_R(r_i)$ of a single interaction is determined by a set of rules:
+\begin{equation}
+rule = (role_a, role_b, c, e, v)
+\end{equation}
+    * $v$ is the expected performance.
+    * $e$ is the amount of influence this rule has on the total value.
+* $\omega_R(r_i) = e_i$
+
 ---
 
 # Witness reputation
+
+* Is built on observations on the agents behavior by other agents.
+* Need to find other agents that have interacted with $b$.
+* This might be problematic in large environment:
+    * Limited resources available;
+    * Need to find these witnesses in reasonable time.
+* Once all the ratings have been collected, the weight is determined by $\omega_W(ri) = omega_W(ri)$.
+
+---
+
+# Witness reputation
+
+![How to find witnesses](img/fig_wr.png)
 
 ---
 
