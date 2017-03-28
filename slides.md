@@ -124,7 +124,7 @@ This gives us:
 * We know how to calculate how reliable each individual rating is: $\omega_K$
 * We use this to express:
     * Rating reliability $\rho_{RK}$: The total reliability of the individual ratings.
-    * Deviation reliability $\rho_{DK}$: The higher the variance in the ratings is, the more volatile the agent is likely to fulfilling its agreements. 
+    * Deviation reliability $\rho_{DK}$: The higher the variability in the ratings is, the more volatile the agent is likely to fulfilling its agreements. 
 
 ---
 
@@ -141,7 +141,7 @@ This gives us:
 # How to express reliability? - Deviation reliability
 
 * The higher the variability in the ratings is, the more volatile the agent is likely to fulfilling its agreements. 
-* $\rightarrow$ The higher the variability the lower the deviation reliability is.
+* $\rightarrow$ The higher the variability in the ratings the lower the deviation reliability is.
 
 \begin{equation}
 \rho_{DK}(a,b,c) = 1 - \frac{1}{2} \cdot 
