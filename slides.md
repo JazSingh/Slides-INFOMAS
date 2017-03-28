@@ -243,10 +243,47 @@ rule = (role_a, role_b, c, e, v)
 \begin{equation}
 \rho_\mathcal{T}(a,b,c) = \frac{\sum\nolimits_{K\in \{I,R,C,W\}} w_K}{\sum\nolimits_{K\in \{I,R,C,W\}} W_K}
 \end{equation}
+
 ---
+
+# But this assumption...
+
+> "Agents are honest in exchanging information with one another."
+
+Isn't this in contradiction with what we want to achieve here?
+
+---
+
+# Without this assumption...
+Third-party can of course be innacurate:
+1. One person can see 'on-time good delivery' as an excellent service, but someone else can see this as 'satisfactory'.
+2. You can deliberately provide false information about someone, to serve your own interests.
+
+To fix this, they have extended the model...
+
+---
+
+# The Credibility Model
+
+* Computes the credibility of a witness or a referee, based on the IT components in FIRE
+* These measures are called the witness credibility and referee credibility
+* The procedures of computing these measures are (almost) the same, I´ll show you witness credibility
+
+---
+
+# Witness Credibility
+
+After having an interaction of agent *a* with *b*... 
+1. *a* records its rating about *b*'s performance: *r*~a~
+
+\begin{equation}
+
+\end{equation}
+
 
 # Summary
 
+---
 
 <!-- Local Variables:  -->
 <!-- pandoc/write: beamer -->
