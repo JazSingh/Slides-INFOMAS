@@ -88,7 +88,7 @@ Since ratings become outdated over time, an agent only stores the latest $H$ tra
 
 ---
 
-# How to quantify trust? - Trust value $\mathcal{T}$
+# How to quantify trust? - Trust value $\mathcal{T}_K$
 
 Use a rating weight function (reliability function) $\omega_K$ for every type of trust, where $K \in \{I,R,W,C\}$.
 
@@ -203,6 +203,7 @@ rule = (role_a, role_b, c, e, v)
     * Limited resources available;
     * Need to find these witnesses in reasonable time.
 * Once all the ratings have been collected, the weight is determined by $\omega_W(ri) = omega_W(ri)$.
+* Based on the idea of referrals.
 
 ---
 
@@ -214,10 +215,34 @@ rule = (role_a, role_b, c, e, v)
 
 # Certified reputation
 
+* Is built from ratings from *certified references* given by *referees*.
+* Stored by the agent itself and chooses which ratings to present.
+
+. . .
+
+* After every transaction, $b$ asks $a$ to give a certified rating.
+* When $a$ contacts $b$, it asks $b$ for the te certified references.
+
+* Since the ratings are from direct interactions, $\omega_C(r_i) = \omega_I(r_i)$.
+
 ---
 
 # Putting it all together
 
+* We weigh every $\mathcal{T}_K$ with $W_K$ to indicate its relevance and get the global trust value.
+* We get $w_k$ from every given weight $W_K$: $w_k = W_K \cdot rho_K(a,b,c)$, from this we get:
+
+\begin{equation}
+\mathcal{T}(a,b,c) = 
+\frac{\sum\nolimits_{K\in \{I,R,C,W\}} w_K \cdot \mathcal{T}_K(a,b,c) }
+{\sum\nolimits_{K\in \{I,R,C,W\}} w_K}
+\end{equation}
+
+* Then the overall reliability becomes:
+
+\begin{equation}
+\rho_\mathcal{T}(a,b,c) = \frac{\sum\nolimits_{K\in \{I,R,C,W\}} w_K}{\sum\nolimits_{K\in \{I,R,C,W\}} W_K}
+\end{equation}
 ---
 
 # Summary
