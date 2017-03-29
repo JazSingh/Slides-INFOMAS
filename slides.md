@@ -321,10 +321,7 @@ Several conditions tested, such as…
 * The provider population changes at maximum 2% every round
 * The consumer population changes at maximum 5% every round
 * A provider may switch into a different (performance) profile with a probability of 2% every round
-
 And more…
-
-> “Since the NoTrust group still has the lowest performance, we omit its results from the charts for the sake of simplicity.”
 
 ---
 
@@ -393,7 +390,7 @@ v_w = \begin{cases}
 \begin{equation}
 T_{WCr}(a, b) = 
 \begin{cases}
-T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr} \neq \emptyset \\
+T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr}) \neq \emptyset \\
 T_{WCr} & otherwise
 \end{cases}
 \end{equation}
