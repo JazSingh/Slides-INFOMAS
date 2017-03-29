@@ -43,7 +43,7 @@ This causes some uncertainties:
 
 ---
 
-# Fire
+# FIRE
 
 Uses all four sources of information
 
@@ -243,10 +243,186 @@ rule = (role_a, role_b, c, e, v)
 \begin{equation}
 \rho_\mathcal{T}(a,b,c) = \frac{\sum\nolimits_{K\in \{I,R,C,W\}} w_K}{\sum\nolimits_{K\in \{I,R,C,W\}} W_K}
 \end{equation}
+
+---
+
+# Now lets test this model...
+
+* Providers: agents which provide a service
+    * Four different types of performance: good, ordinary, bad, and intermittent
+* Consumers: agents which ask a provider for a service (selection process)
+* Act in rounds, not a continuous stream of actions
+
+How to make the environment dynamic:
+
+1. Change the population: add/remove x providers and y consumers randomly
+2. Change relationships between agents: change its location in the world
+3. Change the behavior of providers: change average performance by a certain amount each round
+
+---
+
+# Questions we want answers on...
+
+1. How does FIRE perform in a static world?
+    * Typical situation with 50% good and 50% bad providers
+    * Situations with only good or bad providers
+2. How does each component of FIRE perform?
+3. How does FIRE perform in a dynamic world?
+
+---
+
+# Typical provider population
+
+* Consisting of 50% profitable providers (i.e. yielding positive UG) and 50% exploiting providers (yielding negative UG)
+* Static environment
+
+![Typical world_overall performance](img/overall_performance_typical_world.png)
+
+---
+
+# Performance of FIRE (100% good providers)
+
+![Performance good providers](img/performance_good_providers.png)
+
+---
+
+# Performance of FIRE (100% ordinary providers)
+
+![Performance ordinary providers](img/performance_ordinary_providers.png)
+
+---
+
+# Performance of FIRE (100% bad providers)
+
+![Performance bad providers](img/performance_bad_providers.png)
+
+---
+
+# Performance of FIRE’s novel components (WR)
+
+Since the IT components are mostly reused from Regret, we only look at the novel components; WR and CR.
+
+![Performance WR](img/performance_wr.png)
+
+---
+
+# Performance of FIRE’s novel components (CR)
+
+Since the IT components are mostly reused from Regret, we only look at the novel components; WR and CR.
+
+![Performance CR](img/performance_cr.png)
+
+---
+
+# Performance of FIRE in a dynamic environment
+
+Several conditions tested, such as…
+
+* The provider population changes at maximum 2% every round
+* The consumer population changes at maximum 5% every round
+* A provider may switch into a different (performance) profile with a probability of 2% every round
+
+And more…
+
+> “Since the NoTrust group still has the lowest performance, we omit its results from the charts for the sake of simplicity.”
+
+---
+
+# Performance of FIRE in a dynamic environment
+
+![Performance Dynamic World](img/performance_dynamic_world.png)
+
+---
+
+# What have we seen?
+
+* FIRE introduces a generic framework which combines multiple sources of trust information to provide a collective and precise trust measure.
+* Using FIRE, agents are in general better in selecting the best partner, resulting in a better UG.
+* FIRE can handle various types of changes in an open MAS very well.
+* Specifically, the WR and CR components contribute highly to FIRE's performance.
+
+---
+
+# Are we done?
+
+> "Agents are honest in exchanging information with one another."
+
+Isn't this in contradiction with what we want to achieve here?
+
+---
+
+# Without this assumption...
+Third-party can of course be innacurate:
+
+1. One person can see 'on-time good delivery' as an excellent service, but someone else can see this as 'satisfactory'.
+2. You can deliberately provide false information about someone, to serve your own interests.
+
+To fix this, they have extended the model :)
+
+---
+
+# The Credibility Model
+
+* Computes the credibility of a witness or a referee, based on the IT components in FIRE
+* These measures are called the witness credibility and referee credibility
+* The procedures of computing these measures are (almost) the same, I´ll show you witness credibility
+
+---
+
+# Witness Credibility
+
+After having an interaction of agent *a* with *b*... 
+
+1. *a* records its rating about *b*'s performance: *r*~a~ = (*a*, *b*, *i~a~*, c, *v~a~*)
+2. When *a* previously received a witness rating from *w* about *b*: *r*~k~ = (*w*, *b*, *i~k~*, c, *v~k~*)
+3. ...it rates the credibility *v~w~* of *w*:
+
+\begin{equation}
+v_w = \begin{cases}
+\begin{array}{lr}
+  1 - |v_k - v_a| & \textrm{ if } |v_k - v_a| < l \\
+  -1 & \textrm{ if } |v_k - v_a| \geq l
+\end{array}
+\end{cases}
+\end{equation}
+
+---
+
+# How to compute the witness credibility?
+
+\begin{equation}
+T_{WCr}(a, b) = 
+\begin{cases}
+T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr} \neq \emptyset \\
+T_{WCr} & otherwise
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\omega_{W}(r_i) = 
+\begin{cases}
+0 & \textrm{if } T_{WCr}(a,w) \leq 0 \\
+T_{WCr}(a,w) \cdot \omega_{I}(r_i) & otherwise
+\end{cases}
+\end{equation}
+
+Computing a referee's credibility has the same approach.
+
+---
+
+# Testing witness inaccuracy level
+
+![Witness inaccuracy level](img/witness_inaccuracy_levels.png)
+
+---
+
+# Testing witness inaccuracy level
+
+![Witness inaccuracy level](img/WR_results.png)
+
 ---
 
 # Summary
-
 
 <!-- Local Variables:  -->
 <!-- pandoc/write: beamer -->
