@@ -349,7 +349,7 @@ Isn't this in contradiction with what we want to achieve here?
 ---
 
 # Without this assumption...
-Third-party can of course be innacurate:
+Third-party information can of course be innacurate:
 
 1. One person can see 'on-time good delivery' as an excellent service, but someone else can see this as 'satisfactory'.
 2. You can deliberately provide false information about someone, to serve your own interests.
@@ -388,7 +388,7 @@ v_w = \begin{cases}
 # How to compute the witness credibility?
 
 \begin{equation}
-T_{WCr}(a, b) = 
+T_{WCr}(a, w) = 
 \begin{cases}
 T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr}) \neq \emptyset \\
 T_{WCr} & otherwise
