@@ -307,6 +307,20 @@ T_{WCr}(a,w) \cdot \omega_{I}(r_i) & otherwise
 \end{cases}
 \end{equation}
 
+Computing a referee's credibility has the same approach.
+
+---
+
+# Testing witness inaccuracy level
+
+![Witness inaccuracy level](img/witness_inaccuracy_levels.png)
+
+---
+
+# Testing witness inaccuracy level
+
+![Witness inaccuracy level](img/WR_results.png)
+
 ---
 
 # Summary
