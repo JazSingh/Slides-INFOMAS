@@ -43,7 +43,7 @@ This causes some uncertainties:
 
 ---
 
-# Fire
+# FIRE
 
 Uses all four sources of information
 
@@ -274,12 +274,40 @@ To fix this, they have extended the model...
 # Witness Credibility
 
 After having an interaction of agent *a* with *b*... 
-1. *a* records its rating about *b*'s performance: *r*~a~
+1. *a* records its rating about *b*'s performance: *r*~a~ = (*a*, *b*, *i~a~*, c, *v~a~*)
+2. When *a* previously received a witness rating from *w* about *b*: *r*~k~ = (*w*, *b*, *i~k~*, c, *v~k~*)
+3. ...it rates the credibility *v~w~* of *w*:
 
 \begin{equation}
-
+v_w = \begin{cases}
+\begin{array}{lr}
+  1 - |v_k - v_a| & \textrm{ if } |v_k - v_a| < l \\
+  -1 & \textrm{ if } |v_k - v_a| \geq l
+\end{array}
+\end{cases}
 \end{equation}
 
+---
+
+# How to compute the witness credibility?
+
+\begin{equation}
+T_{WCr}(a, b) = 
+\begin{cases}
+T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr} \neq \emptyset \\
+T_{WCr} & otherwise
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\omega_{W}(r_i) = 
+\begin{cases}
+0 & \textrm{if } T_{WCr}(a,w) \leq 0 \\
+T_{WCr}(a,w) \cdot \omega_{I}(r_i) & otherwise
+\end{cases}
+\end{equation}
+
+---
 
 # Summary
 
