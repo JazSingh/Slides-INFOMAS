@@ -230,7 +230,7 @@ rule = (role_a, role_b, c, e, v)
 # Putting it all together
 
 * We weigh every $\mathcal{T}_K$ with $W_K$ to indicate its relevance and get the global trust value.
-* We get $w_k$ from every given weight $W_K$: $w_k = W_K \cdot rho_K(a,b,c)$, from this we get:
+* We get $w_k$ from every given weight $W_K$: $w_k = W_K \cdot \rho_K(a,b,c)$, from this we get:
 
 \begin{equation}
 \mathcal{T}(a,b,c) = 
