@@ -37,7 +37,7 @@ This causes some uncertainties:
 |:-------------          |:-------------        |
 | Direct experience      | Interaction trust    |
 | Witness experience     | Witness reputation   |
-| Role-bases rules       | Role-based trust     | 
+| Role-based rules       | Role-based trust     | 
 | Third-party references | Certified reputation |
 
 
@@ -80,9 +80,9 @@ Every rating is a tuple $r = (a,b,c,i,v)$.
 
 Where $a$ and $b$ are the agents participating in transaction $i$. Value $v \in [-1, +1]$ is the rating given by agent $a$ to agent $b$ regarding regarding topic $c$ (e.g. quality, honesty).
 
-These ratings are stored in the agent's local database. 
+. . . 
 
-. . .
+These ratings are stored in the agent's local database. This similar to the Regret model.
 
 Since ratings become outdated over time, an agent only stores the latest $H$ transactions it gave to other agents.
 
@@ -202,7 +202,7 @@ rule = (role_a, role_b, c, e, v)
 * This might be problematic in large environment:
     * Limited resources available;
     * Need to find these witnesses in reasonable time.
-* Once all the ratings have been collected, the weight is determined by $\omega_W(ri) = omega_W(ri)$.
+* Once all the ratings have been collected, the weight is determined by $\omega_W(ri) = \omega_W(ri)$.
 * Based on the idea of referrals.
 
 ---
@@ -419,7 +419,17 @@ Computing a referee's credibility has the same approach.
 
 ---
 
-# Summary
+# Discussion
+
+* We have seen how the different kinds of trust and reputation are combined.
+* It shows significant improvement over older systems.
+* The WR and CR components contribute highly to FIRE’s performance.
+
+. . .
+
+* Assumption about truthful communication does not hold in reality.
+* How would we deal with malicious agents?
+* What component could be added to the model?
 
 <!-- Local Variables:  -->
 <!-- pandoc/write: beamer -->
