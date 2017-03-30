@@ -368,11 +368,11 @@ To fix this, they have extended the model :)
 
 # Witness Credibility
 
-After having an interaction of agent *a* with *b*... 
+After having an interaction of agent $a$ with $b$... 
 
-1. *a* records its rating about *b*'s performance: *r*~a~ = (*a*, *b*, *i~a~*, c, *v~a~*)
-2. When *a* previously received a witness rating from *w* about *b*: *r*~k~ = (*w*, *b*, *i~k~*, c, *v~k~*)
-3. ...it rates the credibility *v~w~* of *w*:
+1. $a$ records its rating about $b$'s performance: $r_a$ = ($a$, $b$, $i_a$, c, $v_a$)
+2. When $a$ previously received a witness rating from $w$ about $b$: $r_k$ = ($w$, $b$, $i_k$, c, $v_k$)
+3. ...it rates the credibility $v_w$ of $w$:
 
 \begin{equation}
 v_w = \begin{cases}
