@@ -388,18 +388,18 @@ v_w = \begin{cases}
 # How to compute the witness credibility?
 
 \begin{equation}
-T_{WCr}(a, w) = 
+\mathcal{T}_{WCr}(a, w) = 
 \begin{cases}
-T_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr}) \neq \emptyset \\
-T_{WCr} & otherwise
+\mathcal{T}_I(a,w,term_{WCr}) & \textrm{if } \mathcal{R}_I(a, w, term_{WCr}) \neq \emptyset \\
+\mathcal{T}_{WCr} & otherwise
 \end{cases}
 \end{equation}
 
 \begin{equation}
 \omega_{W}(r_i) = 
 \begin{cases}
-0 & \textrm{if } T_{WCr}(a,w) \leq 0 \\
-T_{WCr}(a,w) \cdot \omega_{I}(r_i) & otherwise
+0 & \textrm{if } \mathcal{T}_{WCr}(a,w) \leq 0 \\
+\mathcal{T}_{WCr}(a,w) \cdot \omega_{I}(r_i) & otherwise
 \end{cases}
 \end{equation}
 
